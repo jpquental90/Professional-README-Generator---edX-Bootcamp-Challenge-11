@@ -5,7 +5,48 @@ const generateMarkdown = require('./utils/generateMarkdown'); //This imports a c
 
 // array of questions for user
 const questions = [
-
+    {
+        type: 'input',
+        name: 'description',
+        message: 'What is the description of the project?',
+    },
+    {
+        type: 'checkbox',
+        name: 'table of contents',
+        message: 'Please select all the items you would like to include in your table of contents:',
+        choices: ['Installation', 'Usage', 'Licence', 'Contributing', 'Tests', 'Questions']
+    },
+    {
+        type: 'input',
+        name: 'usage',
+        message: 'Describe the usage of your project:',
+    },
+    {
+        type: 'checkbox',
+        name: 'licence',
+        message: 'Please select the licence you would like to include in your project:',
+        choices: ['Installation', 'Usage', 'Licence', 'Contributing', 'Tests', 'Questions']
+    },
+    {
+        type: 'input',
+        name: 'contributing',
+        message: 'Describe the contributions to your project:',
+    },
+    {
+        type: 'input',
+        name: 'tests',
+        message: 'Describe the testing of your project:',
+    },
+    {
+        type: 'input',
+        name: 'questions1',
+        message: 'Please enter your GitHub username:',
+    },
+    {
+        type: 'input',
+        name: 'questions2',
+        message: 'Please enter your email address:',
+    },
 ];
 
 // function to write README file
