@@ -17,7 +17,7 @@ const questions = [
     },
     {
         type: 'checkbox',
-        name: 'table-of-contents',
+        name: 'tableOfContents',
         message: 'Please select all the items you would like to include in your table of contents:',
         choices: ['Installation', 'Usage', 'Licence', 'Contributing', 'Tests', 'Questions']
     },

@@ -32,4 +32,15 @@ function generateMarkdown(data) {
 `;
 }
 
+function generateTableOfContents(data) {
+  return data.tableOfContents.map(item => `- [${item}](#${item.toLowerCase()})`).join('\n');
+}
+
+function generateLicenseSection(data) {
+  // // Add logic here to include the selected license badge and notice
+  // // Example: [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  // // and a notice based on the selected license
+  // return `[![License: ${data.license}](https://img.shields.io/badge/License-${data.license}-blue.svg)](https://opensource.org/licenses/${data.license.toLowerCase()})\n\nThis project is licensed under the ${data.license} License.`;
+}
+
 module.exports = generateMarkdown;
