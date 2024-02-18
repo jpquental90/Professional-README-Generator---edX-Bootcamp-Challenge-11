@@ -27,10 +27,10 @@ const questions = [
         message: 'Describe the usage of your project:',
     },
     {
-        type: 'checkbox',
-        name: 'licence',
-        message: 'Please select the licence you would like to include in your project:',
-        choices: ['Installation', 'Usage', 'Licence', 'Contributing', 'Tests', 'Questions']
+        type: 'list',
+        name: 'license',
+        message: 'Please select the license you would like to include in your project:',
+        choices: ['MIT License', 'Apache License 2.0', 'GNU General Public License (GPL) v3', 'Mozilla Public License 2.0', 'BSD 3-Clause License']
     },
     {
         type: 'input',
