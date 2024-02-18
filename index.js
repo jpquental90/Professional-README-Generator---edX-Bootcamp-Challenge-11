@@ -3,7 +3,6 @@ const path = require('path'); //This imports another built-in Node.js module cal
 const inquirer = require('inquirer'); //This imports the 'inquirer' module. Inquirer simplifies the process of getting user input through the command line by providing a set of interactive prompts.
 const generateMarkdown = require('./utils/generateMarkdown'); //This imports a custom module located at './utils/generateMarkdown.js'. The 'generateMarkdown' module contains functions or data related to generating markdown content.
 
-// array of questions for user
 const questions = [
     {
         type: 'input',
@@ -19,42 +18,53 @@ const questions = [
         type: 'checkbox',
         name: 'tableOfContents',
         message: 'Please select all the items you would like to include in your table of contents:',
-        choices: ['Installation', 'Usage', 'Licence', 'Contributing', 'Tests', 'Questions']
+        choices: ['Installation', 'Usage', 'License', 'Contributing', 'Tests', 'Questions']
+    },
+    {
+        type: 'input',
+        name: 'installation',
+        message: 'Describe the installation of your project:',
+        when: (answers) => answers.tableOfContents.includes('Installation')
     },
     {
         type: 'input',
         name: 'usage',
         message: 'Describe the usage of your project:',
+        when: (answers) => answers.tableOfContents.includes('Usage')
     },
     {
         type: 'list',
         name: 'license',
         message: 'Please select the license you would like to include in your project:',
-        choices: ['MIT License', 'Apache License 2.0', 'GNU General Public License (GPL) v3', 'Mozilla Public License 2.0', 'BSD 3-Clause License']
+        choices: ['MIT License', 'Apache License 2.0', 'GNU General Public License (GPL) v3', 'Mozilla Public License 2.0', 'BSD 3-Clause License'],
+        when: (answers) => answers.tableOfContents.includes('License')
     },
     {
         type: 'input',
         name: 'contributing',
         message: 'Describe the contributions to your project:',
+        when: (answers) => answers.tableOfContents.includes('Contributing')
     },
     {
         type: 'input',
         name: 'tests',
         message: 'Describe the testing of your project:',
+        when: (answers) => answers.tableOfContents.includes('Tests')
     },
     {
         type: 'input',
         name: 'questions1',
         message: 'Please enter your GitHub username:',
+        when: (answers) => answers.tableOfContents.includes('Questions')
     },
     {
         type: 'input',
         name: 'questions2',
         message: 'Please enter your email address:',
+        when: (answers) => answers.tableOfContents.includes('Questions')
     },
 ];
 
-// function to write README file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
         if (err) {
@@ -65,10 +75,8 @@ function writeToFile(fileName, data) {
     });
 }
 
-// function to initialize program
 async function init() {
     try {
-
         const userResponses = await inquirer.prompt(questions);
 
         const markdownContent = generateMarkdown(userResponses);
@@ -76,11 +84,9 @@ async function init() {
         const outputFileName = 'README.md';
 
         writeToFile(outputFileName, markdownContent);
-
     } catch (error) {
         console.error('Error initializing program:', error);
     }
 }
 
-// function call to initialize program
 init();

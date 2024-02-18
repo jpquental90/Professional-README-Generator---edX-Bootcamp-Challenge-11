@@ -33,7 +33,11 @@ function generateMarkdown(data) {
 }
 
 function generateTableOfContents(data) {
-  return data.tableOfContents.map(item => `- [${item}](#${item.toLowerCase()})`).join('\n');
+  const selectedSections = data.tableOfContents.map(item => {
+      return `- [${item}](#${item.toLowerCase()})`;
+  });
+
+  return selectedSections.join('\n');
 }
 
 function generateLicenseSection(data) {
