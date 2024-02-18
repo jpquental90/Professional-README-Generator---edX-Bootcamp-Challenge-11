@@ -7,12 +7,17 @@ const generateMarkdown = require('./utils/generateMarkdown'); //This imports a c
 const questions = [
     {
         type: 'input',
+        name: 'title',
+        message: 'What is the title of the project?',
+    },
+    {
+        type: 'input',
         name: 'description',
         message: 'What is the description of the project?',
     },
     {
         type: 'checkbox',
-        name: 'table of contents',
+        name: 'table-of-contents',
         message: 'Please select all the items you would like to include in your table of contents:',
         choices: ['Installation', 'Usage', 'Licence', 'Contributing', 'Tests', 'Questions']
     },
@@ -61,8 +66,20 @@ function writeToFile(fileName, data) {
 }
 
 // function to initialize program
-function init() {
+async function init() {
+    try {
 
+        const userResponses = await inquirer.prompt(questions);
+
+        const markdownContent = generateMarkdown(userResponses);
+
+        const outputFileName = 'README.md';
+
+        writeToFile(outputFileName, markdownContent);
+
+    } catch (error) {
+        console.error('Error initializing program:', error);
+    }
 }
 
 // function call to initialize program
