@@ -24,13 +24,14 @@ node index.js
 
 ## Usage
 
-#### Example of a generated README file
+When the user enters the command above, they will be prompted to answer the following questions:
 
-The current weather displays on the top right, and 5-day forecast displays on the bottom right. On the left side we have the search field in which a user can type a city name. 
+![Screenshot of terminal with prompt questions](assets/images/Screenshot1.png)
+</center>
 
-<center>
+A README.md file will be generated based on the user's input. Only the selected items in the table of contents will be generated into the file. The following is a screenshot of a README.md file generated in this way.
 
-![Screenshot of app after making 1 search for weather in London](assets/images/Screenshot1.png)
+![Screenshot of generated README file](assets/images/Screenshot1.png)
 </center>
 
 ## Code
