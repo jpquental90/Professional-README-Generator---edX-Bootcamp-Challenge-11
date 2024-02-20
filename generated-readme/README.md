@@ -1,19 +1,17 @@
-# j;;;j;
+[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
+
+# lkj;
 
 ## Description
-;kjdskd
+jlkfjd;
 
 ## Table of Contents
 - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
+- [License](#license)
 
 ## Installation
-fjd;sdk
+jsdkld;
 
-## Usage
-kjds'fls
-
-## Contributing
-kldsl
+## License
+This project is licensed under the Mozilla Public License 2.0.
 

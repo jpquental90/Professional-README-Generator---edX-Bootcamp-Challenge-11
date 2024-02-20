@@ -26,6 +26,7 @@ function generateMarkdown(data) {
 
   if (data.license) {
     markdownContent += `## License\n`;
+    markdownContent += generateLicenseSection(data) + '\n\n';
   }
 
   if (data.contributing) {
@@ -38,10 +39,6 @@ function generateMarkdown(data) {
 
   if (data.questions1 && data.questions2) {
       markdownContent += `## Questions\nGitHub Profile: [${data.questions1}](https://github.com/${data.questions1})\n\nFor additional questions or comments, please contact me here: ${data.questions2}\n\n`;
-  }
-
-  if (data.license) {
-    markdownContent += generateLicenseSection(data) + '\n\n';
   }
 
   return markdownContent;
