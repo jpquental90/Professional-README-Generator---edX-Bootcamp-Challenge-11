@@ -66,14 +66,25 @@ const questions = [
     },
 ];
 
-//Function to write into a README.md file
+
+// Function to write into a README.md file
 function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, (err) => {
-        if (err) {
-            console.error(err);
-        } else {
-            console.log(`README.md has been successfully generated as ${fileName}`);
-        }
+    const folderPath = 'generated-readme';
+
+    if (!fs.existsSync(folderPath)) {
+    fs.mkdirSync(folderPath);
+    }
+
+    // Create the full file path including the folder
+    const filePath = path.join(folderPath, fileName);
+
+    // Write the file
+    fs.writeFile(filePath, data, (err) => {
+    if (err) {
+        console.error(err);
+    } else {
+        console.log(`${fileName} has been successfully generated in the ${folderPath} folder.`);
+    }
     });
 }
 

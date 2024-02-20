@@ -25,7 +25,7 @@ function generateMarkdown(data) {
   }
 
   if (data.license) {
-      markdownContent += `## License\n`;
+    markdownContent += `## License\n`;
   }
 
   if (data.contributing) {
