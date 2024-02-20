@@ -3,6 +3,7 @@ const path = require('path'); //This imports another built-in Node.js module cal
 const inquirer = require('inquirer'); //This imports the 'inquirer' module. Inquirer simplifies the process of getting user input through the command line by providing a set of interactive prompts.
 const generateMarkdown = require('./utils/generateMarkdown'); //This imports a custom module located at './utils/generateMarkdown.js'. The 'generateMarkdown' module contains functions or data related to generating markdown content.
 
+//List of questions that will be asked to the user
 const questions = [
     {
         type: 'input',
@@ -65,6 +66,7 @@ const questions = [
     },
 ];
 
+//Function to write into a readme.md file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
         if (err) {
@@ -75,6 +77,7 @@ function writeToFile(fileName, data) {
     });
 }
 
+//Function collecting user responses and writing them into the file - error message displayed if there is any issue
 async function init() {
     try {
         const userResponses = await inquirer.prompt(questions);
@@ -89,4 +92,5 @@ async function init() {
     }
 }
 
+//Calling init function
 init();
