@@ -57,12 +57,20 @@ function generateMarkdown(data) {
 }
 
 function generateLicenseBadge(data) {
+  // Define the license badges and links
+  const licenseBadges = {
+    'Apache License 2.0': '[![License: Apache_2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)',
+    'MIT License': '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)',
+    'Mozilla Public License 2.0': '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)',
+    'GNU General Public License (GPL) v3': '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)',
+    'BSD 3-Clause License': '[![License: BSD 3--Clause](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)'
+  };
 
-  const licenseLabel = data.license.replace(/\s+/g, '_');
-  
-  const licenseBadge = `[![License: ${data.license}](https://img.shields.io/badge/License-${licenseLabel}-blue.svg)](https://opensource.org/licenses/${licenseLabel.toLowerCase()})`;
-  
-  return licenseBadge;
+  // Get the selected license badge
+  const selectedBadge = licenseBadges[data.license];
+
+  // Return the selected badge
+  return selectedBadge;
 }
 
 function generateTableOfContents(data) {
