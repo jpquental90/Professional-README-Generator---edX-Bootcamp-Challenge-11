@@ -66,7 +66,7 @@ const questions = [
     },
 ];
 
-//Function to write into a readme.md file
+//Function to write into a README.md file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
         if (err) {
